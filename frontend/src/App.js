@@ -1,23 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Header from './components/Header';
+import GameContainer from './components/GameContainer';
+import pongSrc from "./assets/Images/Pong.png"
+import froggerSrc from "./assets/Images/Frogger.jpg"
+import asteroidsSrc from "./assets/Images/Asteroids.jpg"
+
 
 function App() {
+
+  const[pongLogo, setPongLogo] = useState("../assets/Images/Pong.png")
+  const pongTitle = "Pong"
+  const froggerTitle = "Frogger"
+  const asteroidsTitle = "Asteroids"
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <GameContainer imgSrc={pongSrc} gameTitle={pongTitle} />
+      <GameContainer imgSrc={froggerSrc} gameTitle={froggerTitle}/>
+      <GameContainer imgSrc={asteroidsSrc} gameTitle={asteroidsTitle}/>
     </div>
   );
 }
