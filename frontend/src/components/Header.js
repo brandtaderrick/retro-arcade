@@ -2,7 +2,8 @@
 // import React from 'react'
 import Logo from '../assets/Images/temp_logo.png'
 import Button from './Button'
-const Header = () => {
+
+const Header = ({buttonText}) => {
 
     
     return (
@@ -14,10 +15,10 @@ const Header = () => {
                 <h1 className='homepage_title'>RETRO ARCADE</h1>
             </div>
             
-         <nav>
+         <nav className="headerButton"> 
             <ul>
                 <li>
-                <Button />
+                <Button buttonText={buttonText}/>
                 </li>
             </ul>
          </nav>
@@ -29,3 +30,6 @@ const Header = () => {
 }
 
 export default Header
+
+
+// no routing included with defaualt library
