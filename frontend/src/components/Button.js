@@ -1,10 +1,12 @@
 // import React from 'react'
 
 // Composition in Class Diagram #TODO Look at UML Slides
-const Button = ({buttonText}) => {
+const Button = ({pLink, buttonText}) => {
     return (
         <>
-         <button  className='signup_btn'>{buttonText}</button>   
+        <a href={pLink}>
+         <button className='signup_btn'>{buttonText}</button>   
+        </a>
         </>
     )
 }

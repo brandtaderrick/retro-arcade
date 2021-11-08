@@ -19,14 +19,22 @@ function App() {
   const pongTitle = "Pong"
   const froggerTitle = "Frogger"
   const asteroidsTitle = "Asteroids"
+
+  const homeLink = "/"
+  const pongLink = "/pong"
+  const snakeLink = "/snake"
+  const asteroidsLink = "/asteroids"
+  // $TODO
+  const loginLink = "/login"
+  const highScoreLink = "/highscores"
   
   return (
       <div>
-        <Header buttonText="Login"/>
-        <GameContainer imgSrc={pongSrc} gameTitle={pongTitle} />
-        <GameContainer imgSrc={froggerSrc} gameTitle={froggerTitle}/>
-        <GameContainer imgSrc={asteroidsSrc} gameTitle={asteroidsTitle}/>
-        <Button buttonText="High Scores" />
+        <Header pLink={loginLink} buttonText="Login"/>
+        <GameContainer pLink={pongLink} imgSrc={pongSrc} gameTitle={pongTitle} />
+        <GameContainer pLink={snakeLink} imgSrc={froggerSrc} gameTitle={froggerTitle}/>
+        <GameContainer pLink={asteroidsLink} imgSrc={asteroidsSrc} gameTitle={asteroidsTitle}/>
+        <Button pLink={highScoreLink} buttonText="High Scores" />
         <Footer />
         <Link to="/signup">Link</Link>
       </div>
