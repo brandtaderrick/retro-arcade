@@ -25,6 +25,9 @@ code {
   text-shadow: 1px 1px .1px #3BCC75;
   font-style: italic;
   font-size: 60px;
+  text-align: center;
+  border: black 3px solid;
+  width: 100%;
 }
 
 .site_logo{
@@ -33,19 +36,39 @@ code {
   padding-left: 10px;
   position: absolute;
   left: 1%;
+  border: black 3px solid;
+
+
 }
 
 .header{
   text-align: center;
   overflow: hidden;
+  width: 100%;
+  border: black 3px solid;
+}
+
+.navBar{
+  width: 33%;
 }
 
 .signup_btn{
  position: absolute;
  right: 1%;
- width: 8%;
- display: inline;
+ width: 8%; 
+ background-color: #36454F;
+ color: white;
+ border-radius: 18px;
+ font-size: 24px;
+ padding: 10px 20px;
+ border: black 3px solid;
+
  
+}
+
+.footer {
+  margin-top:  100px;
+  margin-left: 10px;
 }
 
 ul {
