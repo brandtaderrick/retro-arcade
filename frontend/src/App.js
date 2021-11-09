@@ -30,13 +30,12 @@ function App() {
   
   return (
       <div>
-        <Header pLink={loginLink} buttonText="Login"/>
+        <Header displayButton={true} pLink={loginLink} buttonText="Login"/>
         <GameContainer pLink={pongLink} imgSrc={pongSrc} gameTitle={pongTitle} />
         <GameContainer pLink={snakeLink} imgSrc={froggerSrc} gameTitle={froggerTitle}/>
         <GameContainer pLink={asteroidsLink} imgSrc={asteroidsSrc} gameTitle={asteroidsTitle}/>
         <Button pLink={highScoreLink} buttonText="High Scores" />
         <Footer />
-        <Link to="/signup">Link</Link>
       </div>
   );
 }

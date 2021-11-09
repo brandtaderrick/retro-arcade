@@ -5,7 +5,7 @@ const Button = ({pLink, buttonText}) => {
     return (
         <>
         <a href={pLink}>
-         <button className='signup_btn'>{buttonText}</button>   
+         <button className="signup_btn">{buttonText}</button>   
         </a>
         </>
     )

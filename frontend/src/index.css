@@ -26,7 +26,7 @@ code {
   font-style: italic;
   font-size: 60px;
   text-align: center;
-  border: black 3px solid;
+  /* border: black 3px solid; */
   width: 100%;
 }
 
@@ -36,7 +36,7 @@ code {
   padding-left: 10px;
   position: absolute;
   left: 1%;
-  border: black 3px solid;
+  /* border: black 3px solid; */
 
 
 }
@@ -45,7 +45,7 @@ code {
   text-align: center;
   overflow: hidden;
   width: 100%;
-  border: black 3px solid;
+  /* border: black 3px solid; */
 }
 
 .navBar{
@@ -94,4 +94,12 @@ p{
   overflow: hidden;
   margin: 10px;
   text-align: center;
+}
+
+.loginHeader {
+  text-align: center;
+  font-family: monospace;
+  font-size: 20px;
+  letter-spacing: 3px;
+  font-weight: 100;
 }

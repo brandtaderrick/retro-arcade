@@ -3,10 +3,10 @@
 import Logo from '../assets/Images/temp_logo.png'
 import Button from './Button'
 
-const Header = ({pLink, buttonText}) => {
+const Header = ({pLink, buttonText, displayButton}) => {
 
     const returnLink = "/"
-    
+   
     return (
     <>
         <header className="header">
@@ -19,7 +19,8 @@ const Header = ({pLink, buttonText}) => {
                     <nav className="headerButton"> 
                         {/* <ul>
                             <li> */}
-                            <Button pLink={pLink} buttonText={buttonText}/>
+                            {displayButton ? <Button pLink={pLink} buttonText={buttonText}/> : <></> }
+                                
                             {/* </li>
                         </ul> */}
                     </nav>

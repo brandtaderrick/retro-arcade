@@ -5,9 +5,9 @@ import FormContainer from "./FormContainer"
 const LoginPage = ({buttonText}) => {
     return (
         <div>
-            <Header buttonText={buttonText}/>
+            <Header displayButton={false} buttonText={buttonText}/>
+            <h2 className="loginHeader"> Login </h2>
             {/* #TODO Implement FormContainer and place here */}
-            <a href="/">Go back</a>
         </div>
     )
 }

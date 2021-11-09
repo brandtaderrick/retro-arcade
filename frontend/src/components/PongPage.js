@@ -5,7 +5,6 @@ const PongPage = () => {
     return (
         <div>
             <Header />
-            <a href="/">Go back</a>
         </div>
     )
 }

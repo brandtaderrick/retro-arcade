@@ -5,7 +5,6 @@ const SnakePage = () => {
     return (
         <div>
             <Header />
-            <a href="/">Go back</a>
         </div>
     )
 }
