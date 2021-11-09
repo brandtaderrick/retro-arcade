@@ -1,11 +1,13 @@
 // import React from 'react'
 
 import Header from "./Header"
+import HighScoreContainer from "./HighScoreContainer"
 
 const HighScorePage = () => {
     return (
         <div>
-            <p>Lorem ipsum dolor sit.</p>
+            <Header />
+            <HighScoreContainer />
         </div>
     )
 }

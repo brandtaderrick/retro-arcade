@@ -20,7 +20,6 @@ const Header = ({pLink, buttonText, displayButton}) => {
                         {/* <ul>
                             <li> */}
                             {displayButton ? <Button pLink={pLink} buttonText={buttonText}/> : <></> }
-                                
                             {/* </li>
                         </ul> */}
                     </nav>
