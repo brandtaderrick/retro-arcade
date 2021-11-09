@@ -1,5 +1,6 @@
 // import React from 'react'
 import Header from "./Header"
+import FormContainer from "./FormContainer"
 
 const SignupPage = () => {
     return (

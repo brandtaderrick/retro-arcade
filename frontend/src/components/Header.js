@@ -15,17 +15,17 @@ const Header = ({pLink, buttonText}) => {
             </a>
 
             <div>
-                <h1 className='homepage_title'>RETRO ARCADE</h1>
+                <h1 className='homepage_title'>RETRO ARCADE
+                    <nav className="headerButton"> 
+                        {/* <ul>
+                            <li> */}
+                            <Button pLink={pLink} buttonText={buttonText}/>
+                            {/* </li>
+                        </ul> */}
+                    </nav>
+                </h1>
             </div>
             
-         <nav className="headerButton"> 
-            <ul>
-                <li>
-                <Button pLink={pLink}buttonText={buttonText}/>
-                </li>
-            </ul>
-         </nav>
-
         </header>
     </>
         

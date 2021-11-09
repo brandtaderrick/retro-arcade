@@ -13,8 +13,8 @@ ReactDOM.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="signup" element={<SignupPage />} />
-      <Route path="login" element={<LoginPage />} />
-      <Route path="highscore" element={<LoginPage />} />
+      <Route path="login" element={<LoginPage buttonText="Login" />} />
+      {/* <Route path="highscore" element={<LoginPage />} /> */}
       <Route path="pong" element={<PongPage />} />
       <Route path="snake" element={<SnakePage />} />
     </Routes>
