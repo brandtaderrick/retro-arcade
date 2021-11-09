@@ -18,6 +18,7 @@ code {
 
 .homepage_title{
   padding-top: 50px;
+  padding-left: 80px;
   font-family: monospace;
   color: #A41CE3;
   letter-spacing: 3px;
@@ -103,3 +104,50 @@ p{
   letter-spacing: 3px;
   font-weight: 100;
 }
+
+.highScoreContainer{
+  height: 400px;
+  overflow: hidden;
+}
+
+.columnTitle{
+  letter-spacing: 5px;
+  font-size: 30px;
+  font-weight: 100;
+}
+
+.column{
+  text-align: center;
+  display: inline;
+  width: 33%;
+  float: right;
+  font-family: monospace;
+  font-weight: 100;
+  font-size: 15px;
+  
+}
+
+.highScoreTitle{
+  text-align: center;
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.nameInfo{
+  display: block;
+}
+
+.Pong{
+  color: #E0D361;
+}
+.Snake{
+  color: #24BF21;
+}
+.Asteroids{
+  color: #D34747;
+}
+.Frogger{
+  color: #21B6BF;
+}
+

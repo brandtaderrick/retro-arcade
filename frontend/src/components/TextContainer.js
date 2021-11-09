@@ -3,7 +3,7 @@
 const textContainer = ({gameTitle, gameText}) => {
     return (
         <>
-            <h1>{gameTitle}</h1>
+            <h1 className={gameTitle}>{gameTitle}</h1>
             <p>{gameText}</p>
         </>
     )

@@ -10,7 +10,6 @@ const GameContainer = ({pLink,imgSrc, gameTitle, gameText}) => {
             <img className="gameImg" src={imgSrc} alt="pongLogo" />
             </a>
             <TextContainer gameText={gameText} gameTitle={gameTitle}/>
-            
         </div>
     )
 }

@@ -7,16 +7,21 @@ import SignupPage from "./components/SignupPage"
 import LoginPage from "./components/LoginPage"
 import PongPage from "./components/PongPage"
 import SnakePage from "./components/SnakePage"
+import AsteroidsPage from "./components/AsteroidsPage"
+import FroggerPage from "./components/FroggerPage"
+import HighScorePage from "./components/HighScorePage"
 
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
+      <Route path="/" element={<App />} /> 
       <Route path="signup" element={<SignupPage />} />
       <Route path="login" element={<LoginPage buttonText="Login" />} />
-      {/* <Route path="highscore" element={<LoginPage />} /> */}
+      <Route path="highscores" element={<HighScorePage />} />
       <Route path="pong" element={<PongPage />} />
       <Route path="snake" element={<SnakePage />} />
+      <Route path="asteroids" element={<AsteroidsPage />} />d
+      <Route path="frogger" element={<FroggerPage />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById('root')
