@@ -2,6 +2,7 @@
 
 import Header from "./Header"
 import HighScoreContainer from "./HighScoreContainer"
+import GameTabs from "./GameTabs"
 
 const HighScorePage = () => {
     return (

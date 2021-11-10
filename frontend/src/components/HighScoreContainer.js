@@ -3,13 +3,13 @@
 import NameContainer from "./NameContainer"
 import ScoreContainer from "./ScoreContainer"
 import RankContainer from "./RankContainer"
+import GameTabs from "./GameTabs"
 
 const HighScoreContainer = () => {
     return (
         <>
-        
         <h4 className="highScoreTitle">Total Score Ranking</h4>
-
+        <GameTabs />
         <div className="highScoreContainer">
         
                 <div className="column">
