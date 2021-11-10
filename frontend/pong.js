@@ -40,7 +40,7 @@ function Paddle(x, y, width, height) {
 }
 
 Paddle.prototype.render = function() {
-  context.fillStyle = "#0000FF";
+  context.fillStyle = "#FFFFFF";
   context.fillRect(this.x, this.y, this.width, this.height);
 };
 
@@ -71,7 +71,7 @@ function Ball(x, y) {
 Ball.prototype.render = function() {
   context.beginPath();
   context.arc(this.x, this.y, this.radius, 2 * Math.PI, false);
-  context.fillStyle = "#000000";
+  context.fillStyle = "#FFFFFF";
   context.fill();
 };
 
@@ -80,7 +80,7 @@ var computer = new Computer();
 var ball = new Ball(200, 300);
 
 var render = function() {
-  context.fillStyle = "#FFFDD0";
+  context.fillStyle = "#000000";
   context.fillRect(0, 0, width, height);
   player.render();
   computer.render();
