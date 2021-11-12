@@ -6,8 +6,9 @@ const SignupPage = () => {
     return (
         <div>
             <Header />
+            <h2 className="loginHeader"> Login </h2>
             {/* #TODO Implement Form Container and place here. */}
-            <a href="/">Go back</a>
+            <FormContainer hideSignupBtn={true}/>
         </div>
     )
 }

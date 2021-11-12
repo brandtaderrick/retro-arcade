@@ -8,6 +8,7 @@ const LoginPage = ({buttonText}) => {
             <Header displayButton={false} buttonText={buttonText}/>
             <h2 className="loginHeader"> Login </h2>
             {/* #TODO Implement FormContainer and place here */}
+            <FormContainer hideSignupBtn={false}/>
         </div>
     )
 }

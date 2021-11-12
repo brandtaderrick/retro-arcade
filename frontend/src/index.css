@@ -181,3 +181,42 @@ p{
   padding-left: 1%;
   margin-right: -10px;
 }
+
+.signup-btn{
+  background-color: #36454F;
+  color: white;
+  border-radius: 18px;
+  font-size: 20px;
+  font-weight: 100;
+  padding: 10px 20px;
+  border: black 1px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.login-btn{
+  background-color: #36454F;
+  color: white;
+  border-radius: 18px;
+  font-size: 20px;
+  font-weight: 100;
+  padding: 10px 20px;
+  border: black 1px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+input{
+  display: block;
+  margin: 10px auto;
+  width: 30%;
+}
+
+label{
+  display: inline-block;
+}
+
+.formContainer{
+  text-align: center;
+  display: block;
+}
