@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import GameContainer from './components/GameContainer';
@@ -37,6 +37,7 @@ function App() {
   const gameTextAsteroids = 'Released in 1979 by Atari, Inc'
   const gameTextFrogger = 'Released in 1981 by Konami/Sega'
 
+  // #TODO implement use state function/hook
   
   return (
       <div>
