@@ -6,11 +6,12 @@ const FormContainer = ({hideSignupBtn}) => {
 
     //need a state component here...??
     const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
  
     const handleSubmit = event => {
         // event.preventDefault()
     
-        // axios.get(`${username}`).then(resp => {
+        // axios.get(`serverIP&Port//${username}`).then(resp => {
         //   props.onSubmit(resp.data)
         //   setUsername('')
         // }) #TODO
