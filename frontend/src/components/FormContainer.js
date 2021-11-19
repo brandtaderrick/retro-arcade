@@ -19,7 +19,7 @@ const FormContainer = ({hideSignupBtn}) => {
 
     return (
         <div className="formContainer">
-            <form onSubmit="">
+            <form method="post" action="/login" onSubmit="">
                 <label htmlFor="userName">Username:</label>
                 <input type="text" id="user_name" name="user_name" />
                 <label htmlFor="password">Password:</label>
