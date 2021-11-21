@@ -41,19 +41,19 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../client/public')));
-app.use(express.static(path.join(__dirname, '../client/src')));
+app.use(express.static(path.join(__dirname, '../client/build/')));
+// app.use(express.static(path.join(__dirname, '../client/src')));
 
 // app.use('/', indexRouter);
-// app.use('/users', usersRouter);
+app.use('/users', usersRouter);
 
-app.get('/hello', function (req, res) {
-  res.json({message: 'Hello World'});
-  res.sendFile(path.resolve(__dirname, '../client/public', 'index.html'))
-})
+// app.get('/users', function (req, res) {
+//   res.json({message: 'Hello World'});
+//   // res.sendFile(path.resolve(__dirname, '../client/build/', 'index.html'))
+// })
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/public', 'index.html'))
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
 })
 
 
