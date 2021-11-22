@@ -7,23 +7,42 @@ const FormContainer = ({hideSignupBtn}) => {
     //need a state component here...??
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+
+    const handleChange = () => {
+        setUsername(document.getElementById("user_name"));
+        setPassword(document.getElementById("password"));
+        console.log(username)
+        console.log(password)
+    }
  
-    const handleSubmit = event => {
-        // event.preventDefault()
-    
-        // axios.get(`serverIP&Port//${username}`).then(resp => {
-        //   props.onSubmit(resp.data)
-        //   setUsername('')
-        // }) #TODO
+    const handleSubmit = (event) => {
+        event.preventDefault()
+
+        // let data = {
+        //     _username: username,
+        //     _password: password,
+        // }
+
+        fetch('/login', {
+            method: "PUT",
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+        })
+        .then(response => response.json()) 
+        .then(json => console.log(json));
+
+        console.log("at the end of handleSubmit")
+
       }
 
+     
+
     return (
-        <div className="formContainer">
+        <div className="formContainer" onSubmit={handleSubmit}>
             <form method="post" action="/login" onSubmit="">
                 <label htmlFor="userName">Username:</label>
-                <input type="text" id="user_name" name="user_name" />
+                <input type="text" id="user_name" name="user_name" onChange={handleChange} />
                 <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password"/>
+                <input type="password" id="password" name="password" onChange={handleChange}/>
                 <Link to="/signup">
                 <button className="signup-btn">Signup</button>
                 </Link>
