@@ -61,6 +61,10 @@ app.put('/login', (req, res) => {
   res.json({message: 'Hello from /login'});
 })
 
+app.post('/signup', (req, res) => {
+  // #TODO, HANDLE DATA
+  res.json({message: 'Hello from /signup'});
+})
 
 
 // catch 404 and forward to error handler

@@ -1,14 +1,14 @@
 // import React from 'react'
 import Header from "./Header"
-import FormContainer from "./FormContainer"
+import FormContainer2 from "./FormContainer2"
 
 const SignupPage = () => {
     return (
         <div>
             <Header />
-            <h2 className="loginHeader"> Login </h2>
+            <h2 className="loginHeader"> Signup </h2>
             {/* #TODO Implement Form Container and place here. */}
-            <FormContainer hideSignupBtn={true}/>
+            <FormContainer2 hideSignupBtn={true}/>
         </div>
     )
 }
