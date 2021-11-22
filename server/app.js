@@ -45,7 +45,7 @@ app.use(express.static(path.join(__dirname, '../client/build/')));
 // app.use(express.static(path.join(__dirname, '../client/src')));
 
 // app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/users', usersRouter);
 
 // app.get('/users', function (req, res) {
 //   res.json({message: 'Hello World'});
@@ -56,6 +56,10 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
 })
 
+app.put('/login', (req, res) => {
+  // #TODO, HANDLE DATA
+  res.json({message: 'Hello from /login'});
+})
 
 
 
