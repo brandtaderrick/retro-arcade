@@ -5,7 +5,7 @@ import ScoreContainer from "./ScoreContainer"
 import RankContainer from "./RankContainer"
 import GameTabs from "./GameTabs"
 
-const HighScoreContainer = ({stats, tableTitle}) => {
+const HighScoreContainer = ({stats, tableTitle, nameHidden}) => {
 
     console.log(stats)
     console.log(stats.Name)
@@ -16,6 +16,7 @@ const HighScoreContainer = ({stats, tableTitle}) => {
         <GameTabs />
         <div className="highScoreContainer">
         
+                
                 <div className="column">
                     <h4 className="columnTitle">Name</h4>
                     <NameContainer names={stats.Name} />
@@ -25,9 +26,11 @@ const HighScoreContainer = ({stats, tableTitle}) => {
                     <ScoreContainer scores={stats.Score} />
                 </div>
                 <div className="column">
-                    <h4 className="columnTitle">Rank</h4>
+                    <h4 className="columnTitle">{nameHidden ? "Top" : "Rank"}</h4>
                     <RankContainer ranks={stats.Rank} />
                 </div>
+
+
             
         </div>
 
