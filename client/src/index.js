@@ -17,6 +17,8 @@ ReactDOM.render(
       <Route path="/" element={<App />} /> 
       <Route path="signup" element={<SignupPage />} />
       <Route path="login" element={<LoginPage buttonText="Login" />} />
+      <Route path="userStats" element={<userStatsPage buttonText="Login" />} /> 
+      {/* update "login" later */}
       <Route path="highscores" element={<HighScorePage />} />
       <Route path="pong" element={<PongPage />} />
       <Route path="snake" element={<SnakePage />} />
