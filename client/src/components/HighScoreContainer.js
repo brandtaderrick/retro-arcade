@@ -5,14 +5,14 @@ import ScoreContainer from "./ScoreContainer"
 import RankContainer from "./RankContainer"
 import GameTabs from "./GameTabs"
 
-const HighScoreContainer = ({stats}) => {
+const HighScoreContainer = ({stats, tableTitle}) => {
 
     console.log(stats)
     console.log(stats.Name)
 
     return (
         <>
-        <h4 className="highScoreTitle">Total Score Ranking</h4>
+        <h4 className="highScoreTitle">{tableTitle}</h4>
         <GameTabs />
         <div className="highScoreContainer">
         
