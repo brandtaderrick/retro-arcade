@@ -6,6 +6,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import SignupPage from "./components/SignupPage"
 import LoginPage from "./components/LoginPage"
 import PongPage from "./components/PongPage"
+import UserStatsPage from "./components/UserStatsPage"
 import SnakePage from "./components/SnakePage"
 import AsteroidsPage from "./components/AsteroidsPage"
 import FroggerPage from "./components/FroggerPage"
@@ -17,7 +18,7 @@ ReactDOM.render(
       <Route path="/" element={<App />} /> 
       <Route path="signup" element={<SignupPage />} />
       <Route path="login" element={<LoginPage buttonText="Login" />} />
-      <Route path="userStats" element={<userStatsPage buttonText="Login" />} /> 
+      <Route path="userStats" element={<UserStatsPage buttonText="Login" />} /> 
       {/* update "login" later */}
       <Route path="highscores" element={<HighScorePage />} />
       <Route path="pong" element={<PongPage />} />
