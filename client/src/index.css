@@ -138,6 +138,17 @@ p{
   
 }
 
+.columnUserStats{
+  text-align: center;
+  display: inline;
+  width: 50%;
+  float: right;
+  font-family: monospace;
+  font-weight: 100;
+  font-size: 15px;
+  
+}
+
 .highScoreTitle{
   text-align: center;
   font-family: monospace;
@@ -225,3 +236,4 @@ label{
   margin-left: 30%;
   text-align: center;
 }
+

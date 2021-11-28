@@ -20,7 +20,7 @@ const HighScorePage = () => {
     return (
         <div>
             <Header />
-            <HighScoreContainer stats={globalStats} tableTitle={"Total Score Ranking"} nameHidden={false}/>
+            <HighScoreContainer stats={globalStats}/>
         </div>
     )
 }

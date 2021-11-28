@@ -1,7 +1,7 @@
 //import React from 'react'
 import { useState, useEffect } from 'react';
 import Header from "./Header"
-import HighScoreContainer from "./HighScoreContainer"
+import UserStatsContainer from "./UserStatsContainer"
 import GameTabs from "./GameTabs"
 
 const UserStatsPage = () => {
@@ -19,7 +19,7 @@ const UserStatsPage = () => {
     return (
         <div>
             <Header />
-            <HighScoreContainer stats={globalStats} nameHidden={true} tableTitle={"Personal Scores"}/>
+            <UserStatsContainer stats={globalStats}/>
         </div>
     )
 }
