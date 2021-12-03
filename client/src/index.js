@@ -26,7 +26,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App buttonText= {localStorage.getItem("userName") ? localStorage.getItem("userName") : loginText } />} /> 
-      <Route path="signup" element={<SignupPage />} />
+      <Route path="signup" element={<SignupPage parentRef={handleLogin}/>} />
       <Route path="login" element={<LoginPage parentRef={handleLogin} buttonText={loginText}/>} />
       <Route path="userStats" element={<UserStatsPage buttonText="Login" />} /> 
       {/* update "login" later */}
