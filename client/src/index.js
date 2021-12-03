@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import {useState, useEffect} from "react"
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import SignupPage from "./components/SignupPage"
 import LoginPage from "./components/LoginPage"
@@ -17,7 +18,7 @@ ReactDOM.render(
     <Routes>
       <Route path="/" element={<App />} /> 
       <Route path="signup" element={<SignupPage />} />
-      <Route path="login" element={<LoginPage buttonText="Login" />} />
+      <Route path="login" element={<LoginPage />} />
       <Route path="userStats" element={<UserStatsPage buttonText="Login" />} /> 
       {/* update "login" later */}
       <Route path="highscores" element={<HighScorePage />} />
