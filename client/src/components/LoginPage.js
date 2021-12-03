@@ -15,6 +15,7 @@ const LoginPage = ({buttonText, parentRef}) => {
 
     const handleLogin = (userNameText) => {
         setTextFromLogin(userNameText);
+        parentRef(userNameText)
     }
     
     const propogateLoginText = () => {
