@@ -31,10 +31,10 @@ ReactDOM.render(
       <Route path="userStats" element={<UserStatsPage buttonText="Login" />} /> 
       {/* update "login" later */}
       <Route path="highscores" element={<HighScorePage />} />
-      <Route path="pong" element={<PongPage />} />
-      <Route path="snake" element={<SnakePage />} />
-      <Route path="asteroids" element={<AsteroidsPage />} />d
-      <Route path="frogger" element={<FroggerPage />} />
+      <Route path="pong" element={<PongPage buttonText= {localStorage.getItem("userName") ? localStorage.getItem("userName") : loginText } />} />
+      <Route path="snake" element={<SnakePage buttonText= {localStorage.getItem("userName") ? localStorage.getItem("userName") : loginText }/>} />
+      <Route path="asteroids" element={<AsteroidsPage buttonText= {localStorage.getItem("userName") ? localStorage.getItem("userName") : loginText } />} />d
+      <Route path="frogger" element={<FroggerPage buttonText= {localStorage.getItem("userName") ? localStorage.getItem("userName") : loginText } />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById('root')
