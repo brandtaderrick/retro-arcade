@@ -18,6 +18,8 @@ import { Outlet, Link } from 'react-router-dom';
 function App() {
 
   const[pongLogo, setPongLogo] = useState("../assets/Images/Pong.png")
+  var  [buttonText, setButtonText] = useState("Login")
+
   const pongTitle = "Pong"
   const snakeTitle = "Snake"
   const asteroidsTitle = "Asteroids"
@@ -41,7 +43,7 @@ function App() {
   
   return (
       <div>
-        <Header displayButton={true} pLink={loginLink} buttonText="Login"/>
+        <Header displayButton={true} pLink={loginLink} buttonText={buttonText}/>
         <GameContainer gameText={gameTextPong} pLink={pongLink} imgSrc={pongSrc} gameTitle={pongTitle} />
         <GameContainer gameText={gameTextSnake} pLink={snakeLink} imgSrc={snakeSrc} gameTitle={snakeTitle}/>
         <GameContainer gameText={gameTextAsteroids} pLink={asteroidsLink} imgSrc={asteroidsSrc} gameTitle={asteroidsTitle}/>
