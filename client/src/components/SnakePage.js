@@ -1,13 +1,19 @@
 // import React from 'react'
+import { useState } from "react";
 import Header from "./Header"
 //import "./snake.css"
 import * as Phaser from "phaser";
 import {Route} from "react-router-dom";
 
-const SnakePage = () => {
+const SnakePage = ({buttonText}) => {
+
+    const userStatsLink = "/userStats"
+    const loginLink = "/login"
+    var  [btnText, setBtnText] = useState(buttonText)
+
     return (
         <div>
-            <Header />
+            <Header displayButton={true} pLink={localStorage.getItem("userName") ? userStatsLink : loginLink} buttonText={btnText}/>
             <Score />
             <Body />
         </div>

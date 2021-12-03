@@ -58,12 +58,12 @@ app.get('*', (req, res) => {
 
 app.put('/login', (req, res) => {
   // #TODO, HANDLE DATA
-  res.json({message: 'Hello from /login'});
+  res.json({message: 'tester1'});
 })
 
 app.post('/signup', (req, res) => {
   // #TODO, HANDLE DATA
-  res.json({message: 'Hello from /signup'});
+  res.json({message: 'tester2'});
 })
 
 

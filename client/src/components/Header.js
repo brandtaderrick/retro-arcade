@@ -1,11 +1,18 @@
 
 // import React from 'react'
+import { useState, useEffect } from 'react'
 import Logo from '../assets/Images/temp_logo.png'
 import Button from './Button'
 
 const Header = ({pLink, buttonText, displayButton}) => {
 
     const returnLink = "/"
+
+    const [btnText, setBtnText] = useState(buttonText);
+
+    useEffect(() => {
+        
+    }, [btnText])
    
     return (
     <>
@@ -19,7 +26,7 @@ const Header = ({pLink, buttonText, displayButton}) => {
                     <nav className="headerButton"> 
                         {/* <ul>
                             <li> */}
-                            {displayButton ? <Button pLink={pLink} buttonText={buttonText}/> : <></> }
+                            {displayButton ? <Button pLink={pLink} buttonText={btnText}/> : <></> }
                             {/* </li>
                         </ul> */}
                     </nav>

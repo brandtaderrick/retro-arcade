@@ -1,12 +1,13 @@
 // import React from 'react'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
-const FormContainer = ({hideSignupBtn}) => {
+const FormContainer = ({hideSignupBtn, parentRef}) => {
 
     //need a state component here...??
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    var [serverReturnedJSON, setServerReturnedJSON] = useState('waiting')
 
     const handleChange = () => {
         setUsername(document.getElementById("user_name").value);
@@ -25,8 +26,6 @@ const FormContainer = ({hideSignupBtn}) => {
 
         // if hideSignupBtn = true then we are on signup page and execute post instruction; needs to be refactored to "hideLoginBtn"
 
-        
-
         console.log(hideSignupBtn)
 
         if(hideSignupBtn){
@@ -36,7 +35,8 @@ const FormContainer = ({hideSignupBtn}) => {
                 headers: {"Content-type": "application/json; charset=UTF-8"}
             })
             .then(response => response.json()) 
-            .then(json => console.log(json));
+            .then(json => { parentRef(json.message)})
+            .then(() => window.location.href = "/")
             
             console.log("/signup")
         }
@@ -46,13 +46,15 @@ const FormContainer = ({hideSignupBtn}) => {
                 body: JSON.stringify(data),
                 headers: {"Content-type": "application/json; charset=UTF-8"}
             })
-            .then(response => response.json()) 
-            .then(json => console.log(json));
+            .then(response => (response.json())) 
+            .then(json => { parentRef(json.message)})
+            .then(() => window.location.href = "/")
+
+           
+
         }
 
       }
-
-    //  {hideSignupBtn ? {} : {}}
 
     return (
         <div className="formContainer">
