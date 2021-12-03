@@ -11,6 +11,7 @@ const FroggerPage = ({buttonText}) => {
     return (
         <div>
             <Header displayButton={true} pLink={localStorage.getItem("userName") ? userStatsLink : loginLink} buttonText={btnText} />
+            Under Development
         </div>
     )
 }
