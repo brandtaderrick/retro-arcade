@@ -26,8 +26,6 @@ const FormContainer = ({hideSignupBtn, parentRef}) => {
 
         // if hideSignupBtn = true then we are on signup page and execute post instruction; needs to be refactored to "hideLoginBtn"
 
-        
-
         console.log(hideSignupBtn)
 
         if(hideSignupBtn){
@@ -50,14 +48,9 @@ const FormContainer = ({hideSignupBtn, parentRef}) => {
             .then(response => (response.json())) 
             .then(json => { parentRef(json.message)})
 
-            // console.log(serverReturnedJSON)
-            // parentRef(serverReturnedJSON)
-            // console.log(serverReturnedJSON) works on second run, probably an async thing with server returning the value
         }
 
       }
-
-    //  {hideSignupBtn ? {} : {}}
 
     return (
         <div className="formContainer">
