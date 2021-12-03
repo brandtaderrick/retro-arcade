@@ -3,6 +3,7 @@ import { useState } from "react"
 import Header from "./Header"
 import PongContainer from "./PongContainer"
 import {Helmet} from "react-helmet"
+import PongLivesContainer from "./PongLivesContainer"
 
 const PongPage = ({buttonText}) => {
 
@@ -16,6 +17,7 @@ const PongPage = ({buttonText}) => {
                 <script async src="./pong.js">TEST</script>
             </Helmet>
             <Header displayButton={true} pLink={localStorage.getItem("userName") ? userStatsLink : loginLink} buttonText={btnText} />
+            <PongLivesContainer lives={3} score={0}/>
         </div>
     )
 }
