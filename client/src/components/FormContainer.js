@@ -1,12 +1,13 @@
 // import React from 'react'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
-const FormContainer = ({hideSignupBtn}) => {
+const FormContainer = ({hideSignupBtn, parentRef}) => {
 
     //need a state component here...??
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    var [serverReturnedJSON, setServerReturnedJSON] = useState('waiting')
 
     const handleChange = () => {
         setUsername(document.getElementById("user_name").value);
@@ -46,8 +47,12 @@ const FormContainer = ({hideSignupBtn}) => {
                 body: JSON.stringify(data),
                 headers: {"Content-type": "application/json; charset=UTF-8"}
             })
-            .then(response => response.json()) 
-            .then(json => console.log(json));
+            .then(response => (response.json())) 
+            .then(json => { parentRef(json.message)})
+
+            // console.log(serverReturnedJSON)
+            // parentRef(serverReturnedJSON)
+            // console.log(serverReturnedJSON) works on second run, probably an async thing with server returning the value
         }
 
       }
