@@ -47,6 +47,9 @@ const FormContainer = ({hideSignupBtn, parentRef}) => {
             })
             .then(response => (response.json())) 
             .then(json => { parentRef(json.message)})
+            .then(() => window.location.href = "/")
+
+           
 
         }
 
