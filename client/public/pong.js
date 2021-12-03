@@ -10,6 +10,7 @@ var canvas = document.createElement('canvas');
 canvas.classList.add("PONG")
 var width = 400;
 var height = 600;
+var score = 0, lives = 3;
 canvas.width = width;
 canvas.height = height;
 var context = canvas.getContext('2d');
@@ -149,12 +150,23 @@ Ball.prototype.update = function(paddle1, paddle2) {
     this.x_speed = -this.x_speed;
   }
 
-  if(this.y < 0 || this.y > 600) { // a point was scored
-    this.x_speed = 0;
-    this.y_speed = 3;
-    this.x = 200;
-    this.y = 300;
-  }
+    if(this.y < 0)
+    { // a point was scored
+	score++;
+	this.x_speed = 0;
+	this.y_speed = 3;
+	this.x = 200;
+	this.y = 300;
+    }
+
+    if(this.y > 600)
+    { // a point was scored
+	lives--;
+	this.x_speed = 0;
+	this.y_speed = 3;
+	this.x = 200;
+	this.y = 300;
+    }
 
   if(top_y > 300) {
     if(top_y < (paddle1.y + paddle1.height) && bottom_y > paddle1.y && top_x < (paddle1.x + paddle1.width) && bottom_x > paddle1.x) {
