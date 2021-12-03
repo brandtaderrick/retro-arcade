@@ -35,7 +35,8 @@ const FormContainer = ({hideSignupBtn, parentRef}) => {
                 headers: {"Content-type": "application/json; charset=UTF-8"}
             })
             .then(response => response.json()) 
-            .then(json => console.log(json));
+            .then(json => { parentRef(json.message)})
+            .then(() => window.location.href = "/")
             
             console.log("/signup")
         }
