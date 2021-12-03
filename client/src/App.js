@@ -15,20 +15,15 @@ import SignupPage from './components/SignupPage';
 import LoginPage from './components/LoginPage';
 import { Outlet, Link } from 'react-router-dom';
 
-const MyContext = createContext();
+function App({buttonText}) {
 
-function App() {
+  console.log(buttonText)
 
   const[pongLogo, setPongLogo] = useState("../assets/Images/Pong.png")
-  var  [buttonText, setButtonText] = useState("Login")
+  var  [btnText, setBtnText] = useState(buttonText)
 
-  const [user, setUser] = useState(null);
-  const ctxObject = useMemo(() => {
-    return {
-      user,
-      setUser
-    }
-  }, [user, setUser])
+
+
 // ---------------------------------------
   const pongTitle = "Pong"
   const snakeTitle = "Snake"
@@ -43,6 +38,7 @@ function App() {
   // $TODO
   const loginLink = "/login"
   const highScoreLink = "/highscores"
+  const userStatsLink = "/userStats"
 
   const gameTextPong = 'Released in 1972 by Atari, Inc'
   const gameTextSnake = 'Released in 1976 by Gremlin Industries'
@@ -55,7 +51,7 @@ function App() {
   
   return (
       <div>
-        <Header displayButton={true} pLink={loginLink} buttonText={buttonText}/>
+        <Header displayButton={true} pLink={localStorage.getItem("userName") ? userStatsLink : loginLink} buttonText={btnText}/>
         <GameContainer gameText={gameTextPong} pLink={pongLink} imgSrc={pongSrc} gameTitle={pongTitle} />
         <GameContainer gameText={gameTextSnake} pLink={snakeLink} imgSrc={snakeSrc} gameTitle={snakeTitle}/>
         <GameContainer gameText={gameTextAsteroids} pLink={asteroidsLink} imgSrc={asteroidsSrc} gameTitle={asteroidsTitle}/>
