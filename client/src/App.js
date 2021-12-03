@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext, useContext, useMemo } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import GameContainer from './components/GameContainer';
@@ -15,11 +15,21 @@ import SignupPage from './components/SignupPage';
 import LoginPage from './components/LoginPage';
 import { Outlet, Link } from 'react-router-dom';
 
+const MyContext = createContext();
+
 function App() {
 
   const[pongLogo, setPongLogo] = useState("../assets/Images/Pong.png")
   var  [buttonText, setButtonText] = useState("Login")
 
+  const [user, setUser] = useState(null);
+  const ctxObject = useMemo(() => {
+    return {
+      user,
+      setUser
+    }
+  }, [user, setUser])
+// ---------------------------------------
   const pongTitle = "Pong"
   const snakeTitle = "Snake"
   const asteroidsTitle = "Asteroids"
@@ -40,6 +50,8 @@ function App() {
   const gameTextFrogger = 'Released in 1981 by Konami/Sega'
 
   // #TODO implement use state function/hook
+
+  
   
   return (
       <div>
