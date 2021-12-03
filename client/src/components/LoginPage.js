@@ -17,10 +17,6 @@ const LoginPage = ({buttonText, parentRef}) => {
         setTextFromLogin(userNameText);
         parentRef(userNameText)
     }
-    
-    const propogateLoginText = () => {
-
-    }
 
     useEffect(() => {
         
