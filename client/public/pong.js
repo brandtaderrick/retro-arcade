@@ -183,6 +183,8 @@ Ball.prototype.update = function(paddle1, paddle2) {
       this.y += this.y_speed;
     }
   }
+  document.getElementById("lives").innerText = lives;
+  document.getElementById("score").innerText = score;
 };
 
 var keysDown = {};

@@ -5,9 +5,9 @@ const PongLivesContainer = ({lives, score}) => {
     return (
         <div>
             <h1>Lives</h1>
-            <p>{lives}</p>
+            <p id="lives"></p>
             <h1>Score</h1>
-            <p>{score}</p>
+            <p id="score"></p>
         </div>
     )
 }
