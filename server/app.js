@@ -76,13 +76,13 @@ app.post('/signup', (req, res) => {
 app.post('/highscores', (req, res) => {
 
   // here is the basic response. Tested to work. Needs to be made dynamic and integrated with MongoDB
-  res.json({Pong: {Name: ["mongoDB stuff goes here", "Brandt", "Barker", "Bumann"],
-                  Score: ["64"],
-                  Rank: ["3rd"]},
+  res.json({Pong: { Name: ["mongoDB stuff goes here", "Brandt", "Barker", "Bumann"],
+                    Score: ["64"],
+                    Rank: ["3rd"]},
 
-           Snake: {Name: "snake mongoDB stuff goes here",
-                  Score: ["23", "34", "35"],
-                  Rank: "2nd"}
+           Snake: { Name: "snake mongoDB stuff goes here",
+                    Score: ["23", "34", "35"],
+                    Rank: "2nd"}
           })
 })
 

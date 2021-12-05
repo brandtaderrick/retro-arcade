@@ -6,41 +6,40 @@ import GameTabs from "./GameTabs"
 
 const HighScorePage = () => {
 
-    var [globalStats, setGlobalStats] = useState(
-        {
-          Name: ["Derrick", "Ryan", "Sam"],
-         
-          Rank: ["1", "2", "3"],
-    
-          Score:["5", "4", "3"],
-        }
-      )
-        // need fetch call in here for getting global stats
-      // const getGlobalPongStats = () => {
-      //   fetch('/pongGlobalStats', {
-      //       method: "GET",
-      //       headers: {"Content-type": "application/json; charset=UTF-8"}
-      //   })
-      //   .then(response => response.json()) 
-      //   .then(json => console.log(json))
-      // }
-     
-      useEffect(() => {
-        fetch('/highscores', {
-          method: "post",
-          headers: {"Content-type": "application/json; charset=UTF-8"}
+    var [globalStats, setGlobalStats] = useState(null)
+    var [isLoading, setIsLoading] = useState(true)
 
-        })
-        .then(response => response.json()) 
-        .then(json => setGlobalStats(json))
-      }, []
-     ) 
+    useEffect(() => {
+      fetch('/highscores', {
+        method: "post",
+        headers: {"Content-type": "application/json; charset=UTF-8"}
+      })
+      .then(response => response.json()) 
+      .then((json) => {
+        setGlobalStats(json)
+        setIsLoading(false)
+        console.log(json)
+      })
+    }, []) 
 
+    useEffect(()=> {
+      console.log(isLoading)
+    }, [isLoading])
+
+    const WaitForData = (pageIsLoading) => {
+
+      if(pageIsLoading){
+        return <> <Header /> <div>Loading...</div></>
+      }
+      else if(!pageIsLoading){
+        return <> <Header /> <HighScoreContainer stats={globalStats}/> </>
+      }
+    }
      
     return (
+
         <div>
-            <Header />
-            <HighScoreContainer stats={globalStats}/>
+            <WaitForData pageIsLoading={isLoading} />
         </div>
     )
 }

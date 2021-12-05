@@ -1,5 +1,5 @@
 // import React from 'react'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import NameContainer from "./NameContainer"
 import ScoreContainer from "./ScoreContainer"
 import RankContainer from "./RankContainer"
@@ -17,11 +17,17 @@ const HighScoreContainer = ({stats}) => {
         // base logic for dynamically rendering data based on game click
         if(e.target.textContent === "Pong"){
             console.log(stats.Pong.Name)
+            setPongNamesData(stats.Pong.Name)
         }
         if(e.target.textContent === "Snake"){
             console.log(stats.Snake.Name)
         }
     }
+
+    useEffect(() => {
+        console.log(pongNamesData)
+    }, [pongNamesData])
+
 
     return (
         <>
@@ -30,18 +36,18 @@ const HighScoreContainer = ({stats}) => {
 
         <div className="highScoreContainer">
         
-                {/* <div className="column">
+                <div className="column">
                     <h4 className="columnTitle">Name</h4>
-                    <NameContainer names={stats.Name} />
+                    <NameContainer names={pongNamesData ? pongNamesData : "test"} />
                 </div>
-                <div className="column"> 
+                {/* <div className="column"> 
                     <h4 className="columnTitle">Score</h4>
                     <ScoreContainer scores={stats.Score} />
                 </div>
                 <div className="column">
                     <h4 className="columnTitle">Rank</h4>
                     <RankContainer ranks={stats.Rank} />
-                </div> */}
+                </div>  */}
         </div>
 
         </>
