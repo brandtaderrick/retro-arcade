@@ -7,8 +7,6 @@ import GameTabs from "./GameTabs"
 
 const HighScoreContainer = ({stats}) => {
 
-    console.log(stats)
-
     // useState for Pong, Snake, etc.
     const [pongNamesData, setPongNamesData] = useState(null)
     const [snakeData, setSnakeData] = useState(null)

@@ -129,6 +129,18 @@ app.post('/highscores', (req, res) => {
           })
 })
 
+app.post('/userhighscores', (req, res) =>{
+  
+  res.json({Pong: { Name: ["mongoDB stuff goes here", "Brandt", "Barker", "Bumann"],
+                    Score: ["64"],
+                    Rank: ["3rd"]},
+
+           Snake: { Name: "snake mongoDB stuff goes here",
+                    Score: ["23", "34", "35"],
+                    Rank: "2nd"}
+          })
+})
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

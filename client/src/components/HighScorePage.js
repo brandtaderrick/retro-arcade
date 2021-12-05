@@ -35,7 +35,7 @@ const HighScorePage = () => {
     return (
 
         <div>
-            <WaitForData pageIsLoading={isLoading} />
+            <WaitForData pageIsLoading={isLoading && globalStats} />
         </div>
     )
 }
