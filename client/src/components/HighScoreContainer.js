@@ -10,10 +10,14 @@ const HighScoreContainer = ({stats}) => {
     console.log(stats)
     console.log(stats.Name)
 
+    const handleGameClick = (e) => {
+        console.log(e.target.textContent)
+    }
+
     return (
         <>
         <h4 className="highScoreTitle">Total Score Ranking</h4>
-        <GameTabs />
+        <GameTabs parentRef={handleGameClick}/>
         <div className="highScoreContainer">
         
                 <div className="column">
@@ -28,9 +32,6 @@ const HighScoreContainer = ({stats}) => {
                     <h4 className="columnTitle">Rank</h4>
                     <RankContainer ranks={stats.Rank} />
                 </div>
-
-
-            
         </div>
 
         </>

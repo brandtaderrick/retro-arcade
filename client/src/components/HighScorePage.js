@@ -6,7 +6,7 @@ import GameTabs from "./GameTabs"
 
 const HighScorePage = () => {
 
-    var [globalStats, setGlobalStats] = useState(
+    var [globalStatsPong, setGlobalStats] = useState(
         {
           Name: ["Derrick", "Ryan", "Sam"],
          
@@ -15,12 +15,32 @@ const HighScorePage = () => {
           Score:["5", "4", "3"],
         }
       )
+        // need fetch call in here for getting global stats
+      // const getGlobalPongStats = () => {
+      //   fetch('/pongGlobalStats', {
+      //       method: "GET",
+      //       headers: {"Content-type": "application/json; charset=UTF-8"}
+      //   })
+      //   .then(response => response.json()) 
+      //   .then(json => console.log(json))
+      // }
+     
+      useEffect(() => {
+        fetch('/highscores', {
+          method: "post",
+          headers: {"Content-type": "application/json; charset=UTF-8"}
+
+        })
+        .then(response => response.json()) 
+        .then(json => console.log(json))
+      }
+     ) 
 
      
     return (
         <div>
             <Header />
-            <HighScoreContainer stats={globalStats}/>
+            <HighScoreContainer stats={globalStatsPong}/>
         </div>
     )
 }
