@@ -24,9 +24,9 @@ const HighScoreContainer = ({stats}) => {
         }
     }
 
-    useEffect(() => {
-        console.log(pongNamesData)
-    }, [pongNamesData])
+    // useEffect(() => {
+    //    setPongNamesData(pongNamesData)
+    // }, [])
 
 
     return (
@@ -38,16 +38,16 @@ const HighScoreContainer = ({stats}) => {
         
                 <div className="column">
                     <h4 className="columnTitle">Name</h4>
-                    <NameContainer names={pongNamesData ? pongNamesData : "test"} />
+                    <NameContainer names={stats ? stats.Pong.Name : "missed"} />
                 </div>
-                {/* <div className="column"> 
+                <div className="column"> 
                     <h4 className="columnTitle">Score</h4>
-                    <ScoreContainer scores={stats.Score} />
+                    <ScoreContainer scores={stats ? stats.Pong.Score : "missed"}/>
                 </div>
                 <div className="column">
                     <h4 className="columnTitle">Rank</h4>
-                    <RankContainer ranks={stats.Rank} />
-                </div>  */}
+                    <RankContainer ranks={stats ? stats.Pong.Rank : "missed"} />
+                </div> 
         </div>
 
         </>

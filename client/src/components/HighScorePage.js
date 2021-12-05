@@ -15,23 +15,19 @@ const HighScorePage = () => {
         headers: {"Content-type": "application/json; charset=UTF-8"}
       })
       .then(response => response.json()) 
-      .then((json) => {
-        setGlobalStats(json)
-        setIsLoading(false)
-        console.log(json)
-      })
+      .then((json) => setGlobalStats(json))
     }, []) 
 
     useEffect(()=> {
-      console.log(isLoading)
-    }, [isLoading])
+      setIsLoading(false)
+    }, [globalStats])
 
-    const WaitForData = (pageIsLoading) => {
+    const WaitForData = (property) => {
 
-      if(pageIsLoading){
+      if(property.pageIsLoading){
         return <> <Header /> <div>Loading...</div></>
       }
-      else if(!pageIsLoading){
+      else if(!property.pageIsLoading){
         return <> <Header /> <HighScoreContainer stats={globalStats}/> </>
       }
     }
