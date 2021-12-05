@@ -80,7 +80,7 @@ app.post('/highscores', (req, res) => {
                   Score: ["64"],
                   Rank: ["3rd"]},
 
-           Snake: {Name: "mongoDB stuff goes here",
+           Snake: {Name: "snake mongoDB stuff goes here",
                   Score: ["23", "34", "35"],
                   Rank: "2nd"}
           })
