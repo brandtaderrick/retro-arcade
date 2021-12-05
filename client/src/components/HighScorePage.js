@@ -6,7 +6,7 @@ import GameTabs from "./GameTabs"
 
 const HighScorePage = () => {
 
-    var [globalStatsPong, setGlobalStats] = useState(
+    var [globalStats, setGlobalStats] = useState(
         {
           Name: ["Derrick", "Ryan", "Sam"],
          
@@ -32,15 +32,15 @@ const HighScorePage = () => {
 
         })
         .then(response => response.json()) 
-        .then(json => console.log(json))
-      }
+        .then(json => setGlobalStats(json))
+      }, []
      ) 
 
      
     return (
         <div>
             <Header />
-            <HighScoreContainer stats={globalStatsPong}/>
+            <HighScoreContainer stats={globalStats}/>
         </div>
     )
 }
