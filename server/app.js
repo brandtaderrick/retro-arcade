@@ -1,3 +1,15 @@
+const mongoose = require('mongoose');
+
+// Connect to mongodb
+mongoose.connect('mongodb://localhost:27017/myapp');
+
+mongoose.connection.once('open', function(){
+  console.log('Connection has been made.');
+}).on('error', function(error){
+  console.log('Connection error:', error);
+});
+
+
 const http = require('http')
 const fs = require('fs')
 const port = 5000
@@ -64,13 +76,44 @@ app.get('*', (req, res) => {
 })
 
 app.put('/login', (req, res) => {
-  // #TODO, HANDLE DATA
-  res.json({message: 'tester1'});
+
+  const User = require('./models/user');
+
+  User.find({ username: res.req.body._username, password: res.req.body._password }).count()
+  .then(function(numItems) {
+    if(numItems>0)
+    {
+      console.log('Login Successful'); 
+    }
+    else
+    {
+      console.log('Login failed. No such account exists.'); 
+    }
+  });
+
 })
 
 app.post('/signup', (req, res) => {
-  // #TODO, HANDLE DATA
-  res.json({message: 'tester2'});
+
+  const User = require('./models/user');
+
+  User.find({ username: res.req.body._username}).count()
+  .then(function(numItems) {
+    if(numItems>0)
+    {
+      console.log('That username is already taken.'); // Use this to debug
+    }
+    else
+    {
+      var user = new User({
+        username: res.req.body._username,
+        password: res.req.body._password,
+        pongHighScore: res.req.body._pongHighScore,
+        snakeHighScore: res.req.body._snakeHighScore
+      });
+      user.save();
+    }
+  });
 })
 
 app.post('/highscores', (req, res) => {
