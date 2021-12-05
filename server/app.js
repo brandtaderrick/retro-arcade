@@ -57,13 +57,45 @@ app.get('*', (req, res) => {
 })
 
 app.put('/login', (req, res) => {
-  // #TODO, HANDLE DATA
-  res.json({message: 'Hello from /login'});
+
+  const User = require('./models/user');
+
+  User.find({ username: res.req.body._username, password: res.req.body._password }).count()
+  .then(function(numItems) {
+    if(numItems>0)
+    {
+      console.log('Login Successful'); 
+    }
+    else
+    {
+      console.log('Login failed. No such account exists.'); 
+    }
+  });
+
 })
 
 app.post('/signup', (req, res) => {
-  // #TODO, HANDLE DATA
-  res.json({message: 'Hello from /signup'});
+
+  const User = require('./models/user');
+
+  User.find({ username: res.req.body._username}).count()
+  .then(function(numItems) {
+    if(numItems>0)
+    {
+      console.log('That username is already taken.'); // Use this to debug
+    }
+    else
+    {
+      var user = new User({
+        username: res.req.body._username,
+        password: res.req.body._password,
+        pongHighScore: res.req.body._pongHighScore,
+        snakeHighScore: res.req.body._snakeHighScore
+      });
+      user.save();
+    }
+  });
+
 })
 
 
