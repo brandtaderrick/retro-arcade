@@ -51,6 +51,13 @@ app.use(express.static(path.join(__dirname, '../client/build/')));
 //   res.json({message: 'Hello World'});
 //   // res.sendFile(path.resolve(__dirname, '../client/build/', 'index.html'))
 // })
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
@@ -95,9 +102,20 @@ app.post('/signup', (req, res) => {
       user.save();
     }
   });
-
 })
 
+app.post('/highscores', (req, res) => {
+
+  // here is the basic response. Tested to work. Needs to be made dynamic and integrated with MongoDB
+  res.json({Pong: {Name: ["mongoDB stuff goes here", "Brandt", "Barker", "Bumann"],
+                  Score: ["64"],
+                  Rank: ["3rd"]},
+
+           Snake: {Name: "snake mongoDB stuff goes here",
+                  Score: ["23", "34", "35"],
+                  Rank: "2nd"}
+          })
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

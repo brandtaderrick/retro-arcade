@@ -2,11 +2,12 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
-const FormContainer2 = ({hideSignupBtn}) => {
+const FormContainer2 = ({hideSignupBtn, parentRef}) => {
 
     //need a state component here...??
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+
 
     const handleChange = () => {
         setUsername(document.getElementById("user_name").value);
@@ -36,7 +37,8 @@ const FormContainer2 = ({hideSignupBtn}) => {
                 headers: {"Content-type": "application/json; charset=UTF-8"}
             })
             .then(response => response.json()) 
-            .then(json => console.log(json));
+            .then(json => { parentRef(json.message)})
+            .then(() => window.location.href = "/")
             
             console.log("/signup")
         }
