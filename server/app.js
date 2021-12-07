@@ -63,6 +63,7 @@ app.use(express.static(path.join(__dirname, '../client/build/')));
 //   res.json({message: 'Hello World'});
 //   // res.sendFile(path.resolve(__dirname, '../client/build/', 'index.html'))
 // })
+
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -77,67 +78,69 @@ app.get('*', (req, res) => {
 
 app.put('/login', (req, res) => {
 
-  const User = require('./models/user');
+  // const User = require('./models/user');
 
-  User.find({ username: res.req.body._username, password: res.req.body._password }).count()
-  .then(function(numItems) {
-    if(numItems>0)
-    {
-      console.log('Login Successful'); 
-    }
-    else
-    {
-      console.log('Login failed. No such account exists.'); 
-    }
-  });
-
+//   User.find({ username: res.req.body._username, password: res.req.body._password }).count()
+//   .then(function(numItems) {
+//     if(numItems>0)
+//     {
+//       console.log('Login Successful'); 
+//     }
+//     else
+//     {
+//       console.log('Login failed. No such account exists.'); 
+//     }
+//   });
+  res.json({message: 'tester1'});
 })
 
 app.post('/signup', (req, res) => {
 
-  const User = require('./models/user');
+  // const User = require('./models/user');
 
-  User.find({ username: res.req.body._username}).count()
-  .then(function(numItems) {
-    if(numItems>0)
-    {
-      console.log('That username is already taken.'); // Use this to debug
-    }
-    else
-    {
-      var user = new User({
-        username: res.req.body._username,
-        password: res.req.body._password,
-        pongHighScore: res.req.body._pongHighScore,
-        snakeHighScore: res.req.body._snakeHighScore
-      });
-      user.save();
-    }
-  });
+  // User.find({ username: res.req.body._username}).count()
+  // .then(function(numItems) {
+  //   if(numItems>0)
+  //   {
+  //     console.log('That username is already taken.'); // Use this to debug
+  //   }
+  //   else
+  //   {
+  //     var user = new User({
+  //       username: res.req.body._username,
+  //       password: res.req.body._password,
+  //       pongHighScore: res.req.body._pongHighScore,
+  //       snakeHighScore: res.req.body._snakeHighScore
+  //     });
+  //     user.save();
+  //   }
+  // });
+
+  res.json({message: 'tester2'});
 })
 
 app.post('/highscores', (req, res) => {
 
   // here is the basic response. Tested to work. Needs to be made dynamic and integrated with MongoDB
-  res.json({Pong: { Name: ["mongoDB stuff goes here", "Brandt", "Barker", "Bumann"],
-                    Score: ["64"],
-                    Rank: ["3rd"]},
+  res.json({Pong: { Name: ["xxSniper12", "Soldier76", "Snowman", "apollo12", "jmandex", "elpolloloco"],
+                    Score: ["64", "45", "32", "23", "12", "2"],
+                    Rank: ["1","2","3","4","5","6"]},
 
-           Snake: { Name: "snake mongoDB stuff goes here",
-                    Score: ["23", "34", "35"],
-                    Rank: "2nd"}
+           Snake: { Name: ["fluffyDoge", "BitcoinMoons", "TeslaHireMe", "apollo12", "jmandex", "elpolloloco"],
+                    Score:["64", "45", "32", "23", "12", "2"],
+                    Rank: ["1","2","3","4","5","6"]}
           })
 })
 
 app.post('/userhighscores', (req, res) =>{
-  
-  res.json({Pong: { Name: ["mongoDB stuff goes here", "Brandt", "Barker", "Bumann"],
-                    Score: ["64"],
-                    Rank: ["3rd"]},
 
-           Snake: { Name: "snake mongoDB stuff goes here",
-                    Score: ["23", "34", "35"],
-                    Rank: "2nd"}
+  res.json({Pong: { Name: ["xxSniper12", "Soldier76", "Snowman", "apollo12", "jmandex", "elpolloloco"],
+                    Score: ["64", "45", "32", "23", "12", "2"],
+                    Rank: ["1","2","3","4","5","6"]},
+
+           Snake: { Name: ["fluffyDoge", "BitcoinMoons", "TeslaHireMe", "apollo12", "jmandex", "elpolloloco"],
+                    Score: ["64", "45", "32", "23", "12", "2"],
+                    Rank: ["1","2","3","4","5","6"]}
           })
 })
 

@@ -6,7 +6,7 @@ import GameTabs from "./GameTabs"
 
 const UserStatsPage = () => {
 
-    var [globalStats, setGlobalStats] = useState(null)
+    var [dataReceived, setDataReceived] = useState()
     var [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
@@ -15,13 +15,13 @@ const UserStatsPage = () => {
         headers: {"Content-type": "application/json; charset=UTF-8"}
       })
       .then(response => response.json())
-      .then((json) => setGlobalStats(json))
+      .then(json => setDataReceived(json))
+      .then(() => setIsLoading(false))
+
+      console.log("dataReceived:", dataReceived)
     }, []) 
 
-    
-    useEffect(()=> {
-      setIsLoading(false)
-    }, [globalStats])
+    // useEffect is the only hook function that can cause re-render on variable change
 
       const WaitForData = (property) => {
 
@@ -29,15 +29,14 @@ const UserStatsPage = () => {
           return <> <Header /> <div>Loading...</div></>
         }
         else if(!property.pageIsLoading){
-          return <> <Header /> <UserStatsContainer stats={globalStats}/> </>
+        console.log("inIsLoading if statement", isLoading)
+        return <> <Header /> <UserStatsContainer stats={dataReceived}/></>
         }
       }
 
     return (
         <div>
-            {/* <Header />
-            <UserStatsContainer stats={globalStats}/> */}
-            <WaitForData pageIsLoading={isLoading && globalStats} />
+            <WaitForData pageIsLoading={isLoading}/>
         </div>
     )
 }
