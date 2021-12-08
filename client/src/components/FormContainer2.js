@@ -17,6 +17,7 @@ const FormContainer2 = ({hideSignupBtn, parentRef}) => {
     }
  
     const handleSubmit = (event) => {
+        
         event.preventDefault()
 
         let data = {
@@ -32,7 +33,7 @@ const FormContainer2 = ({hideSignupBtn, parentRef}) => {
 
         if(hideSignupBtn){
             fetch('/signup', {
-                method: "POST",
+                method: "PUT",
                 body: JSON.stringify(data),
                 headers: {"Content-type": "application/json; charset=UTF-8"}
             })
@@ -43,15 +44,9 @@ const FormContainer2 = ({hideSignupBtn, parentRef}) => {
             console.log("/signup")
         }
         else{
-            fetch('/login', {
-                method: "PUT",
-                body: JSON.stringify(data),
-                headers: {"Content-type": "application/json; charset=UTF-8"}
-            })
-            .then(response => response.json()) 
-            .then(json => console.log(json));
+            window.alert("error go back!")
         }
-
+    
       }
 
     //  {hideSignupBtn ? {} : {}}
