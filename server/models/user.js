@@ -1,15 +1,31 @@
 const mongoose = require('mongoose');
+// Defines the structure of the document which will later be..
 const Schema = mongoose.Schema;
 
 // Create Schema and Model
 
 const UserSchema = new Schema({
-        username: String,
-        password: String,
-        pongHighScore: int,
-        snakeHighScore: int
-});
+        username: {
+                type: String,
+                required: true,
+        },
+        password: {
+                type: String,
+                required: true,
+        },
 
-const User = mongoose.model('user', UserSchema);
+        pongHighScore: {
+                type: String,
+                required: false,
+        },
 
-module.exports = User;
+        snakeHighScore: {
+                type: String,
+                required: false,
+        },
+
+}, {timestamps: true});
+
+const UserInDatabase = mongoose.model('UserSchema', UserSchema)
+
+module.exports = UserInDatabase;

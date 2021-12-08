@@ -1,14 +1,9 @@
 const mongoose = require('mongoose');
+const UserInDatabse = require('./models/user')
+
 
 // Connect to mongodb
-mongoose.connect('mongodb://localhost:27017/myapp');
-
-mongoose.connection.once('open', function(){
-  console.log('Connection has been made.');
-}).on('error', function(error){
-  console.log('Connection error:', error);
-});
-
+// mongoose.connect('mongodb://localhost:27017/myapp');
 
 const http = require('http')
 const fs = require('fs')
@@ -20,8 +15,29 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const UserInDatabase = require('./models/user');
 var app = express();
 
+// connect to mongoDB : HAVE TO REMOVE THE <> BRACKETS DUMMY
+const dbURI = 'mongodb+srv://319teamG9:Classtimemwf2-15@cluster0.jrgzj.mongodb.net/319-database?retryWrites=true&w=majority'
+// Connect to mongodb
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
+.then(() => {
+  app.listen(port, function(error) {
+    if (error) {
+      console.log('Something went wrong', error)
+    } else {
+      console.log('Server is listening on port ' + port)
+    }
+  })
+})
+.catch(err => console.log(err))
+
+mongoose.connection.once('open', function(){
+  console.log('Connection has been made to DB.');
+}).on('error', function(error){
+  console.log('Connection error:', error);
+});
 //---------------------------------------------------
 
 // const server = http.createServer(function(req, res) {
@@ -37,17 +53,11 @@ var app = express();
 //   })
 // })
 
-app.listen(port, function(error) {
-  if (error) {
-    console.log('Something went wrong', error)
-  } else {
-    console.log('Server is listening on port ' + port)
-  }
-})
+
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
+app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -72,8 +82,38 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
+// })
+
+app.get('/add-user', (req, res) => {
+  const newUser = new UserInDatabase({
+    username: "tester3",
+    password: "tester3",
+    pongHighScore: "3",
+    snakeHighScore: "3", 
+  })
+
+  newUser.save()
+  .then((result)=> {
+    res.json({msg: "New User Saved"})
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+
+})
+
+app.get('/get-users', (req, res) => {
+  UserInDatabase.find()
+  .then(results => console.log(results))
+  .catch(err => console.log(err))
+})
+
+app.get('/find-user', (req, res) => {
+  UserInDatabse.find({username: "tester3"})
+  .then(results => console.log(results))
+  .catch(err => console.log(err))
 })
 
 app.put('/login', (req, res) => {
@@ -116,7 +156,21 @@ app.post('/signup', (req, res) => {
   //   }
   // });
 
-  res.json({message: 'tester2'});
+  const newUser = new UserInDatabase({
+    username: req.body._username,
+    password: req.password._password,
+    pongHighScore: "0",
+    snakeHighScore: "0", 
+  })
+
+  newUser.save()
+  .then((result)=> {
+    res.json({message: result.username})
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+
 })
 
 app.post('/highscores', (req, res) => {
