@@ -6,7 +6,7 @@ const UserInDatabse = require("./models/user");
 
 const http = require("http");
 const fs = require("fs");
-const port = 5000;
+const port = 8080;
 var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
@@ -83,9 +83,9 @@ app.use(function (req, res, next) {
   next();
 });
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
-// })
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
+})
 
 app.get("/add-user", (req, res) => {
   const newUser = new UserInDatabase({
@@ -118,20 +118,7 @@ app.get("/find-user", (req, res) => {
 });
 
 app.put("/login", (req, res) => {
-  // const User = require('./models/user');
 
-  //   User.find({ username: res.req.body._username, password: res.req.body._password }).count()
-  //   .then(function(numItems) {
-  //     if(numItems>0)
-  //     {
-  //       console.log('Login Successful');
-  //     }
-  //     else
-  //     {
-  //       console.log('Login failed. No such account exists.');
-  //     }
-  //   });
-  // the database returns an array so have to index it to access
   UserInDatabse.find({ username: req.body._username })
     .then((results) => res.json({ message: results[0].username }))
     .catch((err) => console.log(err));
@@ -144,25 +131,7 @@ app.put("/signup", (req, res) => {
 
   let usr = req.body._username
   let psw = req.body._password
-  // const User = require('./models/user');
 
-  // User.find({ username: res.req.body._username}).count()
-  // .then(function(numItems) {
-  //   if(numItems>0)
-  //   {
-  //     console.log('That username is already taken.'); // Use this to debug
-  //   }
-  //   else
-  //   {
-  //     var user = new User({
-  //       username: res.req.body._username,
-  //       password: res.req.body._password,
-  //       pongHighScore: res.req.body._pongHighScore,
-  //       snakeHighScore: res.req.body._snakeHighScore
-  //     });
-  //     user.save();
-  //   }
-  // });
   const newUser = new UserInDatabase({
     username: usr,
     password: psw,
@@ -237,7 +206,7 @@ app.post("/userhighscores", (req, res) => {
         "jmandex",
         "elpolloloco",
       ],
-      Score: ["64", "45", "32", "23", "12", "2"],
+      Score: ["20", "18", "15", "13", "12", "3"],
       Rank: ["1", "2", "3", "4", "5", "6"],
     },
   });
