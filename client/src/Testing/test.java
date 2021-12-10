@@ -52,19 +52,19 @@ public class test {
 		driver.findElement(By.xpath("//input[@id='"+password+"']")).sendKeys("pass");
 		//driver.findElement(By.xpath("//input[@class='"+login_btn+"']")).click();
 		driver.findElement(By.className("login-btn")).click();
-		Select obj = new Select(driver.findElement(By.name("selectGender")));
-		obj.selectByValue("female");
-		Select obj2 = new Select(driver.findElement(By.name("selectState")));
-		obj2.selectByValue("hawaii");
-		driver.findElement(By.xpath("//input[@id='"+txtEmail+"']")).sendKeys("JGongora963@gmail.com");
-		driver.findElement(By.xpath("//input[@id='"+txtPhone+"']")).sendKeys("888-888-8888");
-		driver.findElement(By.xpath("//input[@id='"+txtAddress+"']")).sendKeys("Ames,IA");
+		//Select obj = new Select(driver.findElement(By.name("selectGender")));
+		//obj.selectByValue("female");
+		//Select obj2 = new Select(driver.findElement(By.name("selectState")));
+		//obj2.selectByValue("hawaii");
+		//driver.findElement(By.xpath("//input[@id='"+txtEmail+"']")).sendKeys("JGongora963@gmail.com");
+		//driver.findElement(By.xpath("//input[@id='"+txtPhone+"']")).sendKeys("888-888-8888");
+		//driver.findElement(By.xpath("//input[@id='"+txtAddress+"']")).sendKeys("Ames,IA");
 
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//input[@id='"+btnValidate+"']")).click();
+		//driver.findElement(By.xpath("//input[@id='"+btnValidate+"']")).click();
 
-		String strMessage=driver.findElement(By.xpath("//label[@id='"+labelNotifytxtFinalResult+"']")).getText();
-		assertEquals("Failed test case", strMessage, "OK");
+		String strMessage=driver.findElement(By.className("Pong")).getText();
+		assertEquals("Failed test case", strMessage, "Pong");
 	}
 /*
 	@Test
