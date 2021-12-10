@@ -7,26 +7,27 @@ import GameTabs from "./GameTabs"
 
 const HighScoreContainer = ({stats}) => {
 
-    console.log(stats)
-
     // useState for Pong, Snake, etc.
-    const [pongNamesData, setPongNamesData] = useState(null)
-    const [snakeData, setSnakeData] = useState(null)
+    const [scoreData, setScoreData] = useState()
+    const [isLoading, setIsLoading] = useState(true)
 
     const handleGameClick = (e) => {
         // base logic for dynamically rendering data based on game click
         if(e.target.textContent === "Pong"){
             console.log(stats.Pong.Name)
-            setPongNamesData(stats.Pong.Name)
+            setScoreData(stats.Pong)
         }
         if(e.target.textContent === "Snake"){
-            console.log(stats.Snake.Name)
+            setScoreData(stats.Snake)
         }
     }
 
-    // useEffect(() => {
-    //    setPongNamesData(pongNamesData)
-    // }, [])
+    useEffect(()=>{
+        // intialize display with Pong values
+        setScoreData(stats.Pong)
+        setIsLoading(false)
+        console.log(stats)
+    }, [])
 
 
     return (
@@ -38,15 +39,15 @@ const HighScoreContainer = ({stats}) => {
         
                 <div className="column">
                     <h4 className="columnTitle">Name</h4>
-                    <NameContainer names={stats ? stats.Pong.Name : "missed"} />
+                    <NameContainer names={isLoading ? "missed" : scoreData.Name} />
                 </div>
                 <div className="column"> 
                     <h4 className="columnTitle">Score</h4>
-                    <ScoreContainer scores={stats ? stats.Pong.Score : "missed"}/>
+                    <ScoreContainer scores={isLoading ? "missed" : scoreData.Score}/>
                 </div>
                 <div className="column">
                     <h4 className="columnTitle">Rank</h4>
-                    <RankContainer ranks={stats ? stats.Pong.Rank : "missed"} />
+                    <RankContainer ranks={isLoading ? "missed" : scoreData.Rank} />
                 </div> 
         </div>
 

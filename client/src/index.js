@@ -34,7 +34,7 @@ ReactDOM.render(
       <Route path="pong" element={<PongPage buttonText= {localStorage.getItem("userName") ? localStorage.getItem("userName") : loginText } />} />
       <Route path="snake" element={<SnakePage buttonText= {localStorage.getItem("userName") ? localStorage.getItem("userName") : loginText }/>} />
       <Route path="asteroids" element={<AsteroidsPage buttonText= {localStorage.getItem("userName") ? localStorage.getItem("userName") : loginText } />} />d
-      <Route path="frogger" element={<FroggerPage buttonText= {localStorage.getItem("userName") ? localStorage.getItem("userName") : loginText } />} />
+    <Route path="frogger" element={<FroggerPage buttonText= {localStorage.getItem("userName") ? localStorage.getItem("userName") : loginText } />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById('root')
