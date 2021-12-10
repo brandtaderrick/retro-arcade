@@ -16,11 +16,8 @@ const HighScorePage = () => {
       })
       .then(response => response.json()) 
       .then((json) => setGlobalStats(json))
+      .then(() => setIsLoading(false))
     }, []) 
-
-    useEffect(()=> {
-      setIsLoading(false)
-    }, [globalStats])
 
     const WaitForData = (property) => {
 
@@ -35,7 +32,7 @@ const HighScorePage = () => {
     return (
 
         <div>
-            <WaitForData pageIsLoading={isLoading && globalStats} />
+            <WaitForData pageIsLoading={isLoading} />
         </div>
     )
 }

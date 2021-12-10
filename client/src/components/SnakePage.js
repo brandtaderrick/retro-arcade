@@ -41,7 +41,7 @@ function Score(){
 var myCanvas;
 
 window.onload = function(){
-    if(document.URL === "http://localhost:3000/snake")
+    if(document.URL === "http://coms-319-014.cs.iastate.edu/snake")
     {
         myCanvas = document.createElement('canvas');
         myCanvas.id = 'myCanvas';

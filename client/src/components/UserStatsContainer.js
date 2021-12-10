@@ -8,22 +8,32 @@ import GameTabs from "./GameTabs"
 
 const UserStatsContainer = ({stats}) => {
 
-    console.log(stats)
-    
+    console.log("stats",stats)
     // useState for Pong, Snake, etc.
-    const [pongNamesData, setPongNamesData] = useState(null)
-    const [snakeData, setSnakeData] = useState(null)
+    const [scoreData, setScoreData] = useState()
+    const [isLoading, setIsLoading] = useState(true)
 
     const handleGameClick = (e) => {
         // base logic for dynamically rendering data based on game click
         if(e.target.textContent === "Pong"){
-            console.log(stats.Pong.Name)
-            setPongNamesData(stats.Pong.Name)
+            setScoreData(stats.Pong)
         }
         if(e.target.textContent === "Snake"){
-            console.log(stats.Snake.Name)
+            // if the Snake button is clicked then set the scoreData to Snake data and render it.
+            setScoreData(stats.Snake)
         }
     }
+
+    useEffect(()=>{
+        // intialize display with Pong values
+        setScoreData(stats.Pong)
+        console.log(stats)
+    }, [])
+
+    useEffect(()=>{
+        setIsLoading(false)
+        console.log("scoreData:",scoreData)
+    }, [scoreData])
 
     return (
         <>
@@ -34,11 +44,11 @@ const UserStatsContainer = ({stats}) => {
 
                 <div className="columnUserStats"> 
                     <h4 className="columnTitle">Score</h4>
-                    <ScoreContainer scores={stats ? stats.Pong.Score : "missed"} />
+                    <ScoreContainer scores={isLoading ? "missed" : scoreData.Score} />
                 </div>
                 <div className="columnUserStats">
                     <h4 className="columnTitle">Rank</h4>
-                    <RankContainer ranks={stats ? stats.Pong.Rank : "missed"} />
+                    <RankContainer ranks={isLoading ? "missed" : scoreData.Rank} />
                 </div>            
         </div>
         </>
