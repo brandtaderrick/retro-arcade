@@ -17,9 +17,8 @@ var usersRouter = require("./routes/users");
 const UserInDatabase = require("./models/user");
 var app = express();
 
-// connect to mongoDB : HAVE TO REMOVE THE <> BRACKETS DUMMY
+// connect to mongoDB
 const dbURI =
-  "mongodb+srv://319teamG9:Classtimemwf2-15@cluster0.jrgzj.mongodb.net/319-database?retryWrites=true&w=majority";
 // Connect to mongodb
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -43,19 +42,6 @@ mongoose.connection
   });
 //---------------------------------------------------
 
-// const server = http.createServer(function(req, res) {
-//   res.writeHead(200, { 'Content-Type': 'text/html' })
-//   fs.readFile('./routes/index.js', function(error, data) {
-//     if (error) {
-//       res.writeHead(404)
-//       res.write('Error: File Not Found')
-//     } else {
-//       res.write(data)
-//     }
-//     res.end()
-//   })
-// })
-
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "jade");
@@ -66,14 +52,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../client/build/")));
 // app.use(express.static(path.join(__dirname, '../client/src')));
-
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
-
-// app.get('/users', function (req, res) {
-//   res.json({message: 'Hello World'});
-//   // res.sendFile(path.resolve(__dirname, '../client/build/', 'index.html'))
-// })
 
 app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -152,7 +130,6 @@ app.put("/signup", (req, res) => {
 });
 
 app.post("/highscores", (req, res) => {
-  // here is the basic response. Tested to work. Needs to be made dynamic and integrated with MongoDB
   res.json({
     Pong: {
       Name: [

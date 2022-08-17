@@ -35,7 +35,6 @@ function App({buttonText}) {
   const snakeLink = "/snake"
   const asteroidsLink = "/asteroids"
   const froggerLink = "/frogger"
-  // $TODO
   const loginLink = "/login"
   const highScoreLink = "/highscores"
   const userStatsLink = "/userStats"
@@ -44,10 +43,6 @@ function App({buttonText}) {
   const gameTextSnake = 'Released in 1976 by Gremlin Industries'
   const gameTextAsteroids = 'Released in 1979 by Atari, Inc'
   const gameTextFrogger = 'Released in 1981 by Konami/Sega'
-
-  // #TODO implement use state function/hook
-
-  
   
   return (
       <div>
